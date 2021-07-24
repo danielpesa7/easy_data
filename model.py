@@ -23,27 +23,32 @@ def predict_stars(string):
         model_dict['Sentimiento'] = "Muy Positivo"
     return model_dict
 
-if __name__ == '__main__':
+def extract_comments(app_id, num_comments):
     rvws, token = reviews(
-            'com.clarocolombia.miclaro', # app's ID, found in app's url
-            lang='es',            # defaults to 'en''
-            sort=Sort.NEWEST,     # defaults to Sort.MOST_RELEVANT
+            app_id,                    # app's ID, found in app's url
+            lang = 'es',               # defaults to 'en''
+            sort = Sort.NEWEST,        # defaults to Sort.MOST_RELEVANT
             filter_score_with = None,  # defaults to None (get all scores)
-            count = 10000          # defaults to 100
+            count = num_comments       # defaults to 100
         )
+    return rvws
 
-    reviews_pdf = pd.DataFrame(rvws)
+def create_comments_pdf(reviews_list, file_name = "reviews_file.csv"):
     model_starts_list = []
     model_score_list = []
+    reviews_pdf = pd.DataFrame(reviews_list)
     results = classifier(list(reviews_pdf["content"]))
     for result in results:
         model_starts_list.append(result['label'])
         model_score_list.append(round(result['score'], 4))
 
-
     reviews_pdf["ModelStarts"] = model_starts_list
     reviews_pdf["ModelStarts"] = reviews_pdf["ModelStarts"].apply(lambda x : int(x[0:1]))
     reviews_pdf["ModelScore"] = model_score_list
     reviews_pdf["StartsDifference"] = abs(reviews_pdf["score"] - reviews_pdf["ModelStarts"])
-    reviews_pdf.to_csv('reviews_file.csv')
+    reviews_pdf.to_csv(file_name)
+    return reviews_pdf
 
+if __name__ == '__main__':
+    comments_list = extract_comments("com.clarocolombia.miclaro", 1000)
+    comments_pdf = create_comments_pdf(comments_list)

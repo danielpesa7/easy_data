@@ -6,9 +6,9 @@ from fastapi import FastAPI
 import pandas as pd
 from model import predict_stars
 
-df = pd.read_csv("reviews_file.csv")
-final_df = df.sort_values(by = "repliedAt")
-final_df = df.loc[:,["content","ModelStarts"]]
+comments_df = pd.read_csv("reviews_file.csv")
+comments_df = comments_df.sort_values(by = "repliedAt")
+comments_df = comments_df.loc[:,["content","ModelStarts"]]
 
 
 app = FastAPI()
@@ -21,7 +21,7 @@ def read_root():
 
 @app.get("/comments/{item_id}")
 def read_pandas_df(item_id: int, q: Optional[str] = None):
-    return final_df.loc[0:item_id,:].to_dict()
+    return comments_df.loc[0:item_id,:].to_dict()
 
 
 @app.get("/predict/")
