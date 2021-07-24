@@ -11,9 +11,7 @@ classifier = pipeline('sentiment-analysis',
 def predict_stars(string):
     model_dict = classifier(string)
     model_dict = model_dict[0]
-    #return model_dict
-    #print(model_dict)
-    if model_dict['label'] == '1 stars':
+    if model_dict['label'] == '1 star':
         model_dict['Sentimiento'] = "Muy Negativo"
     elif model_dict['label'] == '2 stars':
         model_dict['Sentimiento'] = "Negativo"
@@ -24,7 +22,6 @@ def predict_stars(string):
     else:
         model_dict['Sentimiento'] = "Muy Positivo"
     return model_dict
-    #return classifier(string)
 
 if __name__ == '__main__':
     rvws, token = reviews(
@@ -32,8 +29,7 @@ if __name__ == '__main__':
             lang='es',            # defaults to 'en''
             sort=Sort.NEWEST,     # defaults to Sort.MOST_RELEVANT
             filter_score_with = None,  # defaults to None (get all scores)
-            count = 100             # defaults to 100
-            # , continuation_token=token
+            count = 10000          # defaults to 100
         )
 
     reviews_pdf = pd.DataFrame(rvws)
