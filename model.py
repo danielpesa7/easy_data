@@ -8,17 +8,18 @@ from transformers import pipeline
 classifier = pipeline('sentiment-analysis', 
                       model="nlptown/bert-base-multilingual-uncased-sentiment")
 
-def predict_starts(string):
+def predict_stars(string):
     model_dict = classifier(string)
-    return type(model_dict)
-    print(model_dict)
-    if model_dict['label'] == '1':
+    model_dict = model_dict[0]
+    #return model_dict
+    #print(model_dict)
+    if model_dict['label'] == '1 stars':
         model_dict['Sentimiento'] = "Muy Negativo"
-    elif model_dict['label'] == '2':
+    elif model_dict['label'] == '2 stars':
         model_dict['Sentimiento'] = "Negativo"
-    elif model_dict['label'] == '1':
+    elif model_dict['label'] == '3 stars':
         model_dict['Sentimiento'] = "Neutro"
-    elif model_dict['label'] == '1':
+    elif model_dict['label'] == '4 stars':
         model_dict['Sentimiento'] = "Positivo"
     else:
         model_dict['Sentimiento'] = "Muy Positivo"

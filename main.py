@@ -1,7 +1,7 @@
 from typing import Optional
 from fastapi import FastAPI
 import pandas as pd
-from model import predict_starts
+from model import predict_stars
 
 df = pd.read_csv("reviews_file.csv")
 final_df = df.sort_values(by = "repliedAt")
@@ -23,4 +23,4 @@ def read_pandas_df(item_id: int, q: Optional[str] = None):
 
 @app.get("/predict/")
 def predict_string(q: Optional[str] = None):
-    return predict_starts(q)
+    return predict_stars(q)
