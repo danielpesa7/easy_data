@@ -24,6 +24,7 @@ def predict_stars(string):
     return model_dict
 
 def extract_comments(app_id, num_comments):
+    print(f"Extracting {num_comments} comments from app_id: {app_id}")
     rvws, token = reviews(
             app_id,                    # app's ID, found in app's url
             lang = 'es',               # defaults to 'en''
@@ -34,6 +35,7 @@ def extract_comments(app_id, num_comments):
     return rvws
 
 def create_comments_pdf(reviews_list, file_name = "reviews_file.csv"):
+    print(f"Applying predictions over {len(reviews_list)} comments")
     model_starts_list = []
     model_score_list = []
     reviews_pdf = pd.DataFrame(reviews_list)
@@ -50,5 +52,5 @@ def create_comments_pdf(reviews_list, file_name = "reviews_file.csv"):
     return reviews_pdf
 
 if __name__ == '__main__':
-    comments_list = extract_comments("com.clarocolombia.miclaro", 1000)
+    comments_list = extract_comments("com.clarocolombia.miclaro", 5000)
     comments_pdf = create_comments_pdf(comments_list)
