@@ -15,11 +15,11 @@ El proyecto cuenta con dos archivos:
 
 ## Uso de la API
 
-1) Para usar el endpoint el cual devuelve una cantidad n de comentarios y su respectiva clasificación de estrellas se debe acceder a la siguiente url: <herokuapp>/comments/<n_comments>
+1) Para usar el endpoint el cual devuelve una cantidad n de comentarios y su respectiva clasificación de estrellas se debe acceder a la siguiente url: https://easy-data-app.azurewebsites.net/comments/<n_comments>
 
 	- En dicha url la variable n_comments corresponde a la cantidad de comentarios que el usuario desea obtener de la API, por ejemplo:
 
-		<herokuapp>/comments/3
+		https://easy-data-app.azurewebsites.net/comments/3
 
 		Retornará un objeto similar a este:
 
