@@ -28,7 +28,7 @@ sacremoses==0.0.45
 starlette==0.14.2
 terminado==0.9.4
 tokenizers==0.10.3
-torch==1.9.0
+torch==1.9.0+cpu
 tqdm==4.61.2
 transformers==4.9.0
 typing-extensions==3.10.0.0
