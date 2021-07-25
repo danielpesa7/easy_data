@@ -55,6 +55,6 @@ def create_comments_pdf(reviews_list, classifier, file_name = "reviews_file.csv"
     return reviews_pdf
 
 if __name__ == '__main__':
-    comments_list = extract_comments("com.clarocolombia.miclaro", 1000)
+    comments_list = extract_comments("com.clarocolombia.miclaro", 100)
     comments_pdf = create_comments_pdf(comments_list, gen_classifier())
     print('Done')
