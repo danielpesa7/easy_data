@@ -15,11 +15,11 @@ El proyecto cuenta con dos archivos:
 
 ## Uso de la API
 
-1) Para usar el endpoint el cual devuelve una cantidad n de comentarios y su respectiva clasificación de estrellas se debe acceder a la siguiente url: https://easy-data-app.azurewebsites.net/comments/<n_comments>
+1) Para usar el endpoint el cual devuelve una cantidad n de comentarios y su respectiva clasificación de estrellas se debe acceder a la siguiente url: https://easy-data-classifier.azurewebsites.net/comments/<n_comments>
 
 	- En dicha url la variable n_comments corresponde a la cantidad de comentarios que el usuario desea obtener de la API, por ejemplo:
 
-		https://easy-data-app.azurewebsites.net/comments/3
+		https://easy-data-classifier.azurewebsites.net/comments/3
 
 		Retornará un objeto similar a este:
 
@@ -39,11 +39,11 @@ El proyecto cuenta con dos archivos:
 
   
 
-2) Para usar el endpoint el cual devuelve una clasificación de estrellas basado en el texto que se le ingrese via URL se debe acceder a la siguiente url: https://easy-data-app.azurewebsites.net/predict/?text=<texto_a_clasificar>
+2) Para usar el endpoint el cual devuelve una clasificación de estrellas basado en el texto que se le ingrese via URL se debe acceder a la siguiente url: https://easy-data-classifier.azurewebsites.net/predict/?text=<texto_a_clasificar>
 
 - En dicha url la variable texto_a_clasificar corresponde al texto que se quiere clasificar en el sistema de estrellas, por ejemplo:
 
-	https://easy-data-app.azurewebsites.net/predict/?text=Esta es la mejor aplicación que he probado en el último mes.
+	https://easy-data-classifier.azurewebsites.net/predict/?text=Esta es la mejor aplicación que he probado en el último mes.
 
 	Retornará un objeto similar a este:
 	
