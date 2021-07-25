@@ -34,5 +34,5 @@ jobs:
       with:
         app-name: easy-data-classifier
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A1DE692D4B314878BC3549EBB7E2A606 }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_592FEB12B07B4F08A789504AED8680D8 }}
 
