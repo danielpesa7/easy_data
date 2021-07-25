@@ -39,11 +39,11 @@ El proyecto cuenta con dos archivos:
 
   
 
-2) Para usar el endpoint el cual devuelve una clasificación de estrellas basado en el texto que se le ingrese via URL se debe acceder a la siguiente url: <herokuapp>/clasify_text/?text=<texto_a_clasificar>
+2) Para usar el endpoint el cual devuelve una clasificación de estrellas basado en el texto que se le ingrese via URL se debe acceder a la siguiente url: https://easy-data-app.azurewebsites.net/predict/?text=<texto_a_clasificar>
 
 - En dicha url la variable texto_a_clasificar corresponde al texto que se quiere clasificar en el sistema de estrellas, por ejemplo:
 
-	<herokuapp>/clasify_text/?text=Esta es la mejor aplicación que he probado en el último mes.
+	https://easy-data-app.azurewebsites.net/predict/?text=Esta es la mejor aplicación que he probado en el último mes.
 
 	Retornará un objeto similar a este:
 	
